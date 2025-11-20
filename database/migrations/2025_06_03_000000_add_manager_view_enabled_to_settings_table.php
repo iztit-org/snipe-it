@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasColumn('settings', 'manager_view_enabled')) {
+        // if (!Schema::hasColumn('settings', 'manager_view_enabled')) {
             Schema::table('settings', function (Blueprint $table) {
                 $table->boolean('manager_view_enabled')
                     ->default(false)
                     ->comment('Allow managers to view assets assigned to their subordinates');
             });
-        }
+        // }
     }
 
     /**
@@ -25,10 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        if (Schema::hasColumn('settings', 'manager_view_enabled')) {
+        // if (Schema::hasColumn('settings', 'manager_view_enabled')) {
             Schema::table('settings', function (Blueprint $table) {
                 $table->dropColumn('manager_view_enabled');
             });
-        }
+        // }
     }
 };
