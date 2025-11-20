@@ -19,11 +19,11 @@ return new class extends Migration {
          *
          * https://github.com/grokability/snipe-it/issues/16015
          */
-        if (Schema::hasTable('report_templates') && Schema::hasColumn('report_templates', 'options')) {
+        // if (Schema::hasTable('report_templates') && Schema::hasColumn('report_templates', 'options')) {
             Schema::table('report_templates', function (Blueprint $table) {
                 $table->text('options')->nullable(false)->change();
             });
-        }
+        // }
     }
 
     /**
