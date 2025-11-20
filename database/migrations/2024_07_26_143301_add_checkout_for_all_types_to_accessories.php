@@ -32,12 +32,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        if (Schema::hasTable('accessories_users')) {
-            // Schema::table('accessories_checkout', function (Blueprint $table) {
-                $table->dropColumn('assigned_type');   
-            // });
+        // if (Schema::hasTable('accessories_users')) {
+        //     // Schema::table('accessories_checkout', function (Blueprint $table) {
+        //         $table->dropColumn('assigned_type');   
+        //     // });
 
-            // Schema::rename('accessories_checkout', 'accessories_users');
-        }
+        //     // Schema::rename('accessories_checkout', 'accessories_users');
+        // }
     }
 };
