@@ -17,7 +17,7 @@ return new class extends Migration
         if (Schema::hasTable('accessories_users')) {
             // Schema::rename('accessories_users', 'accessories_checkout');
 
-            Schema::table('accessories_checkout', function (Blueprint $table) {
+            Schema::table('accessories_users', function (Blueprint $table) {
                 // if (!Schema::hasColumn('accessories_checkout', 'assigned_type')) {
                     $table->string('assigned_type')->nullable();
                 // }
