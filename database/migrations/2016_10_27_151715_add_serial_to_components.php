@@ -13,7 +13,7 @@ class AddSerialToComponents extends Migration
     public function up()
     {
         Schema::table('components', function ($table) {
-            $table->string('serial_number')->nullable()->default(null);
+            $table->string('serial')->nullable()->default(null);
         });
     }
 
@@ -25,7 +25,7 @@ class AddSerialToComponents extends Migration
     public function down()
     {
         Schema::table('components', function ($table) {
-            $table->dropColumn('serial_number');
+            $table->dropColumn('serial');
         });
     }
 }

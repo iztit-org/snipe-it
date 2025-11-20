@@ -12,9 +12,9 @@ class RenameComponentSerialNumberToSerial extends Migration
      */
     public function up()
     {
-        Schema::table('components', function ($table) {
-            $table->renameColumn('serial_number', 'serial');
-        });
+        // Schema::table('components', function ($table) {
+        //     $table->renameColumn('serial_number', 'serial');
+        // });
     }
 
     /**
@@ -24,8 +24,8 @@ class RenameComponentSerialNumberToSerial extends Migration
      */
     public function down()
     {
-        Schema::table('components', function ($table) {
-            $table->renameColumn('serial', 'serial_number');
-        });
+        // Schema::table('components', function ($table) {
+        //     $table->renameColumn('serial', 'serial_number');
+        // });
     }
 }
