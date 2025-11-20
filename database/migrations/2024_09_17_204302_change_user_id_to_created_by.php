@@ -72,7 +72,7 @@ return new class extends Migration
     public function add_to_table_list() {
         return [
             // 'companies',
-            'imports',
+            // 'imports',
             'kits',
             'kits_accessories',
             'kits_consumables',
