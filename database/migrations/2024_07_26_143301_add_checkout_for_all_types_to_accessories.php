@@ -24,7 +24,7 @@ return new class extends Migration
             });
         }
         
-        DB::update('update '.DB::getTablePrefix().'accessories_checkout set assigned_type = \'App\\\\Models\\\\User\' where assigned_type is null', []);
+        DB::update('update '.DB::getTablePrefix().'accessories_users set assigned_type = \'App\\\\Models\\\\User\' where assigned_type is null', []);
     }
 
     /**
@@ -32,7 +32,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        if (Schema::hasTable('accessories_checkout')) {
+        if (Schema::hasTable('accessories_users')) {
             // Schema::table('accessories_checkout', function (Blueprint $table) {
                 $table->dropColumn('assigned_type');   
             // });
