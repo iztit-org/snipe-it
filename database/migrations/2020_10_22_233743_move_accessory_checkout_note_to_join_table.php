@@ -85,12 +85,12 @@ class MoveAccessoryCheckoutNoteToJoinTable extends Migration
     {
 
         // if (Schema::hasColumn('accessories_users', 'note'))
-        {
+        // {
             Schema::table('accessories_users', function (Blueprint $table)
             {
                 $table->dropColumn('note');
             });
-        }
+        // }
 
     
     }
