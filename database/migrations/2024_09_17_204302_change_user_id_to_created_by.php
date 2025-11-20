@@ -12,7 +12,7 @@ return new class extends Migration
     {
         foreach ($this->add_to_table_list() as $add_table) {
             // if (!Schema::hasColumn($add_table, 'created_by')) {
-                DB::statement("ALTER TABLE `{$add_table}` ADD COLUMN `created_by` BIGINT UNSIGNED NULL BEFORE `created_at`");
+                DB::statement("ALTER TABLE `{$add_table}` ADD COLUMN `created_by` BIGINT UNSIGNED NULL");
             // }
         }
 
