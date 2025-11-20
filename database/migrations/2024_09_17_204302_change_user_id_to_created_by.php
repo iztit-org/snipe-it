@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -13,17 +12,13 @@ return new class extends Migration
     {
         foreach ($this->add_to_table_list() as $add_table) {
             // if (!Schema::hasColumn($add_table, 'created_by')) {
-                Schema::table($add_table, function (Blueprint $add_table) {
-                    $add_table->unsignedBigInteger('created_by')->nullable()->before('created_at');
-                });
+                DB::statement("ALTER TABLE `{$add_table}` ADD COLUMN `created_by` BIGINT UNSIGNED NULL BEFORE `created_at`");
             // }
         }
 
         foreach ($this->existing_table_list() as $table) {
             // if (Schema::hasColumn($table, 'user_id')) {
-                Schema::table($table, function (Blueprint $table) {
-                    $table->renameColumn('user_id', 'created_by');
-                });
+                DB::statement("ALTER TABLE `{$table}` CHANGE `user_id` `created_by` BIGINT UNSIGNED NULL");
             // }
         }
     }
@@ -35,17 +30,13 @@ return new class extends Migration
     {
         foreach ($this->add_to_table_list() as $add_table) {
             // if (Schema::hasColumn($add_table, 'created_by')) {
-                Schema::table($add_table, function (Blueprint $add_table) {
-                    $add_table->dropColumn('created_by');
-                });
+                DB::statement("ALTER TABLE `{$add_table}` DROP COLUMN `created_by`");
             // }
         }
 
         foreach ($this->existing_table_list() as $table) {
             // if (Schema::hasColumn($table, 'created_by')) {
-                Schema::table($table, function (Blueprint $table) {
-                    $table->renameColumn('created_by', 'user_id');
-                });
+                DB::statement("ALTER TABLE `{$table}` CHANGE `created_by` `user_id` BIGINT UNSIGNED NULL");
             // }
         }
     }
