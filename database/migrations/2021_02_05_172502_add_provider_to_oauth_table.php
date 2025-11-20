@@ -15,15 +15,15 @@ class AddProviderToOauthTable extends Migration
     public function up()
     {
         // Add a 'provider' column if not existing or else modify it
-        if (! Schema::hasColumn('oauth_clients', 'provider')) {
+        // if (! Schema::hasColumn('oauth_clients', 'provider')) {
             Schema::table('oauth_clients', function (Blueprint $table) {
                 $table->string('provider')->after('secret')->nullable();
             });
-        } else {
-            Schema::table('oauth_clients', function (Blueprint $table) {
-                $table->string('provider')->after('secret')->nullable()->change();
-            });
-        }
+        // } else {
+        //     Schema::table('oauth_clients', function (Blueprint $table) {
+        //         $table->string('provider')->after('secret')->nullable()->change();
+        //     });
+        // }
     }
 
     /**
@@ -33,10 +33,10 @@ class AddProviderToOauthTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasColumn('oauth_clients', 'provider')) {
+        // if (Schema::hasColumn('oauth_clients', 'provider')) {
             Schema::table('oauth_clients', function (Blueprint $table) {
                 $table->dropColumn('provider');
             });
-        }
+        // }
     }
 }
