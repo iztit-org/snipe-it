@@ -14,15 +14,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (Schema::hasTable('accessories_users')) {
-            // Schema::rename('accessories_users', 'accessories_checkout');
+        // if (Schema::hasTable('accessories_users')) {
+        //     // Schema::rename('accessories_users', 'accessories_checkout');
 
-            Schema::table('accessories_users', function (Blueprint $table) {
-                // if (!Schema::hasColumn('accessories_checkout', 'assigned_type')) {
-                    $table->string('assigned_type')->nullable();
-                // }
-            });
-        }
+        //     Schema::table('accessories_users', function (Blueprint $table) {
+        //         // if (!Schema::hasColumn('accessories_checkout', 'assigned_type')) {
+        //             $table->string('assigned_type')->nullable();
+        //         // }
+        //     });
+        // }
         
         DB::update('update '.DB::getTablePrefix().'accessories_users set assigned_type = \'App\\\\Models\\\\User\' where assigned_type is null', []);
     }
