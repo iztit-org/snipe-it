@@ -44,7 +44,7 @@ return new class extends Migration
     public function existing_table_list() {
         return [
             'accessories',
-            'accessories_checkout',
+            'accessories_users',
             'action_logs',
             'asset_maintenances',
             'assets',
