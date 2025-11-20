@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         foreach ($this->add_to_table_list() as $add_table) {
-            if (!Schema::hasColumn($add_table, 'created_by')) {
+            // if (!Schema::hasColumn($add_table, 'created_by')) {
                 Schema::table($add_table, function (Blueprint $add_table) {
                     $add_table->unsignedBigInteger('created_by')->nullable()->before('created_at');
                 });
-            }
+            // }
         }
 
         foreach ($this->existing_table_list() as $table) {
-            if (Schema::hasColumn($table, 'user_id')) {
+            // if (Schema::hasColumn($table, 'user_id')) {
                 Schema::table($table, function (Blueprint $table) {
                     $table->renameColumn('user_id', 'created_by');
                 });
-            }
+            // }
         }
     }
 
@@ -34,19 +34,19 @@ return new class extends Migration
     public function down(): void
     {
         foreach ($this->add_to_table_list() as $add_table) {
-            if (Schema::hasColumn($add_table, 'created_by')) {
+            // if (Schema::hasColumn($add_table, 'created_by')) {
                 Schema::table($add_table, function (Blueprint $add_table) {
                     $add_table->dropColumn('created_by');
                 });
-            }
+            // }
         }
 
         foreach ($this->existing_table_list() as $table) {
-            if (Schema::hasColumn($table, 'created_by')) {
+            // if (Schema::hasColumn($table, 'created_by')) {
                 Schema::table($table, function (Blueprint $table) {
                     $table->renameColumn('created_by', 'user_id');
                 });
-            }
+            // }
         }
     }
 
