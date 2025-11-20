@@ -15,7 +15,7 @@ class ReNormalizeLastAudit extends Migration
      */
     public function up()
     {
-        if (Schema::hasColumn('assets', 'last_audit_date')) {
+        // if (Schema::hasColumn('assets', 'last_audit_date')) {
 
             // Grab the latest info from the Actionlog table where the action is 'audit'
             $audits = Actionlog::selectRaw('MAX(created_at) AS created_at, item_id')
@@ -35,7 +35,7 @@ class ReNormalizeLastAudit extends Migration
                     }
                 }
             }
-        }
+        // }
     }
 
     /**
