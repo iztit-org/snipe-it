@@ -14,7 +14,7 @@ class CreateModelsTable extends Migration
         Schema::create('models', function ($table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('modelno')->nullable();
+            $table->string('model_number')->nullable();
             $table->integer('manufacturer_id')->nullable();
             $table->integer('category_id')->nullable();
             $table->timestamps();
