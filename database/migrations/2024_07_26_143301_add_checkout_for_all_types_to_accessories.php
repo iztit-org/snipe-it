@@ -24,7 +24,7 @@ return new class extends Migration
         //     });
         // }
         
-        DB::update('update '.DB::getTablePrefix().'accessories_users set assigned_type = \'App\\\\Models\\\\User\' where assigned_type is null', []);
+        // DB::update('update '.DB::getTablePrefix().'accessories_users set assigned_type = \'App\\\\Models\\\\User\' where assigned_type is null', []);
     }
 
     /**
